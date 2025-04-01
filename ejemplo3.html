@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pauses de Autocuidado</title>
+    <!-- Incluir Bootstrap 5 y Animate.css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            text-align: center;
+        }
+        .message-box {
+            background-color: #ffeb3b;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        button {
+            background-color: #ff4081;
+            color: white;
+            font-size: 1.2em;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #f50057;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="animate__animated animate__fadeIn">¡Tómate un respiro!</h1>
+        <button id="pauseButton" class="animate__animated animate__pulse animate__infinite">¿Qué necesito hoy?</button>
+
+        <div id="messageBox" class="message-box animate__animated" style="display: none;">
+            <p id="message" class="lead"></p>
+        </div>
+    </div>
+
+    <script>
+        // Arreglo con mensajes aleatorios
+        const messages = [
+            "Recuerda que está bien no estar bien.",
+            "Respira profundamente, todo está en su lugar.",
+            "Tómate un descanso, te lo mereces.",
+            "Hoy es un buen día para empezar de nuevo.",
+            "Haz una pausa, relájate y sonríe.",
+            "Escucha música suave y siéntete en paz.",
+            "Recuerda que los pequeños pasos también son importantes."
+        ];
+
+        // Obtener elementos del DOM
+        const messageBox = document.getElementById('messageBox');
+        const messageElement = document.getElementById('message');
+        const button = document.getElementById('pauseButton');
+
+        // Función para mostrar mensaje aleatorio
+        function showRandomMessage() {
+            // Seleccionar un mensaje aleatorio
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+
+            // Mostrar el mensaje y aplicar animaciones
+            messageElement.textContent = randomMessage;
+            messageBox.style.display = 'block';
+            messageBox.classList.add('animate__fadeInUp');
+        }
+
+        // Evento de clic en el botón
+        button.addEventListener('click', showRandomMessage);
+    </script>
+
+    <!-- Incluir scripts de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
